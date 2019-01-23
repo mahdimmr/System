@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+
+    <style>
+    .ico{
+     width: 160px;
+                height: 160px;
+                opacity:0.2;
+     transform: translate(-50%,-50%) rotateZ(-45deg);
+     left:20%;
+     z-index:1;
+                top:30%;
+     position: absolute;
+    }
+            .ico-title1{
+
+                line-height: 50px;
+
+                background-image: url("{{ url_for('static', filename='cpu.png') }}");
+                background-size: contain;
+                background-position: center;
+            }
+            .ico-title2{
+
+
+
+                line-height: 50px;
+
+
+
+                background-image: url("{{ url_for('static', filename='ram.png') }}");
+                background-size: contain;
+                background-position: center;
+            }
+            .ico-title3{
+
+
+
+                line-height: 50px;
+
+                background-image: url("{{ url_for('static', filename='router.png') }}");
+                background-size: contain;
+                background-position: center;
+            }
+            .ico-title4{
+
+
+
+                line-height: 50px;
+                background-image: url("{{ url_for('static', filename='battery.png') }}");
+                background-size: contain;
+                background-position: center;
+            }
+            .ico-title5{
+                line-height: 50px;
+                background-image: url("{{ url_for('static', filename='windows-logo.png') }}");
+                background-size: contain;
+                background-position: center;
+            }
+            .any-row{
+               padding: 5px;
+               padding-left: 15px;
+               z-index:2;
+
+            }
+            .service-name{
+                float: left;
+                font-weight: bold;
+                color: #2b61a8;
+                z-index:2;
+            }
+            .service-value{
+                padding-left: 10px;
+                padding-right: 10px;
+
+                float: right;
+                color: #008c09
+            }
+            .card-1{
+                background-color:transparent !important;
+                border:none !important;
+                border-radius: 5px;
+                overflow:hidden;
+            }
+            .main{
+                width:100%;
+                height:100%;
+                padding: 50px;
+                background-color: rgba(0,10,0,0.9);
+                border-radius: 13px;
+            }
+            body{
+                background-color:#999 !important ;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .tittle{
+            font-weight:bold;
+            padding-left:50px;
+            }
+            .con-p{
+            width:100%;
+            display:block;
+            margin-left:10%;
+            text-align:center;
+            color:#333;
+            font-weight:bold;
+            }
+    </style>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    {% if title %}
+        <title>System - {{ title }}</title>
+    {% else %}
+        <title>System</title>
+    {% endif %}
+
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+            {% if current_user.is_authenticated %}
+                <span class="navbar-brand mr-4">System</span>
+                <a class="navbar-brand mr-4" href="/dashboard">Dashboard</a>
+            {% else %}
+                <a class="navbar-brand mr-4" href="/home">System</a>
+            {% endif %}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                {% if current_user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{{ url_for('logout') }}">logout</a>
+                {% else %}
+
+                    <a class="nav-item nav-link" href="{{ url_for('registration') }}">Register</a>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div role="main" class="container-fluid">
+      <div class="row">
+        <div class="col-m">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+</body>
+</html>

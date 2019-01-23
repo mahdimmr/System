@@ -1,0 +1,128 @@
+{% extends "layout.html"%}
+{% block content %}
+<div class="container-fluid main">
+    <div class="row mt-5">
+        <div class="col-md-3 offset-md-1 card card-1 pb-3  mt-5">
+            <div class="ico-title1 ico"></div>
+            <div class="mt-4"></div>
+
+
+            <div class="any-row ">
+                <span class="service-name">Cpu Usage:</span><span class="service-value">{{ cpu_usage }}</span>
+
+            </div>
+            <div class="any-row ">
+                <span class="service-name"><span class="fa"></span>Cpu Real Name:</span><span class="service-value">{{ cpu_realname }}</span>
+
+                </div>
+                <div class="any-row ">
+                        <span class="service-name"><span class="fa"></span>Machine Type:</span><span class="service-value">{{ machine_type }}</span>
+
+                </div>
+                <div class="any-row ">
+                            <span class="service-name"><span class="fa"></span>Number of CPU Core:</span><span class="service-value">{{ num_core }}</span>
+                </div>
+
+        </div>
+
+
+        <div class="col-md-4  card-1 card pb-3 mt-3 mt-5">
+                <div class="ico-title2 ico"></div>
+                <div class="mt-4"></div>
+
+
+            <div class="any-row ">
+                <span class="service-name">Ram Usage:</span><span class="service-value">{{ ram }}</span>
+            </div>
+            <div class="any-row ">
+                    <span class="service-name"><span class="fa"></span>Device Storage:</span><span class="service-value">{{ drive_storage }}</span>
+
+                </div>
+                <div class="any-row ">
+                        <span class="service-name"><span class="fa"></span></span><span class="service-value"></span>
+
+                    </div>
+        </div>
+
+
+        <div class="col-md-3  card-1 card pb-3 mt-5">
+                <div class="ico-title3 ico"></div>
+                <div class="mt-4"></div>
+            <div class="any-row ">
+                <span class="service-name">Name PC on Network:</span><span class="service-value">{{ network_pcname }}</span>
+
+            </div>
+            <div class="any-row ">
+                    <span class="service-name"><span class="fa"></span>Local IP:</span><span class="service-value">{{ locip }}</span>
+
+                </div>
+                <div class="any-row ">
+                        <span class="service-name"><span class="fa"></span><a href="{{ url_for('connections') }}">Connections</a></span><span class="service-value"></span>
+
+                </div>
+        </div>
+
+        <div class="col-md-2 offset-md-2 card-1 card pb-3 mt-5">
+                <div class="ico-title4 ico"></div>
+                <div class="mt-4"></div>
+
+
+            <div class="any-row ">
+                <span class="service-name">Battery status</span><span class="service-value">{{ battery }}</span>
+
+            </div>
+            <div class="any-row ">
+                    <span class="service-name"><span class="fa"></span></span>
+                </div>
+        </div>
+        <div class="col-md-4 offset-md-2 card-1  card pb-3 mt-5">
+                <div class="ico-title5 ico"></div>
+                <div class="mt-4"></div>
+
+
+            <div class="any-row ">
+                <span class="service-name">UserName:</span><span class="service-value">{{ username_logon }}</span>
+
+            </div>
+            <div class="any-row ">
+                <span class="service-name"><a href="{{ url_for('task_running') }}">Task Running</a></span> <span class="service-value"></span>
+
+            </div>
+            <div class="any-row ">
+                    <span class="service-name"><span class="fa"></span>PythonCompiler:</span><span class="service-value">{{ compiler_py }}</span>
+
+                </div>
+                <div class="any-row ">
+                        <span class="service-name"><span class="fa"></span>PythonVersion:</span><span class="service-value">{{ pv }}</span>
+
+                    </div>
+            <div class="any-row ">
+                        <span class="service-name"><span class="fa"></span>Python Implementation:</span><span class="service-value">{{ imple_python }}</span>
+
+                    </div>
+            <div class="any-row ">
+                        <span class="service-name"><span class="fa"></span>OS Name:</span><span class="service-value">{{ os_name }}{{ distro_linux }}</span>
+
+                    </div>
+            <div class="any-row ">
+                        <span class="service-name"><span class="fa"></span>OS Version:</span><span class="service-value">{{ os_version  }}</span>
+
+                    </div>
+            <div class="any-row ">
+                <span class="service-name"><span class="fa"></span><a href="{{ url_for('partitions') }}"><u>Disk Partitions</u></a></span><span class="service-value"></span>
+
+                    </div>
+            {%if distro == None %}
+            {% else %}
+                <div class="any-row ">
+                        <span class="service-name"><span class="fa"></span>distro name:</span><span class="service-value">{{ distro }}</span>
+                </div>
+            {% endif %}
+            <div class="any-row ">
+                        <span class="service-name"><span class="fa"></span>Task Running:</span><span class="service-value">{{ task_runnig }}</span>
+                </div>
+        </div>
+
+    </div>
+    </div>
+{% endblock %}

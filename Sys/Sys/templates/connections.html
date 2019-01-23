@@ -1,0 +1,16 @@
+
+
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="tittle mb-5"> Network IO </h1>
+ <p class="con-p text-center">{{ net_io }}</p>
+<p class="con-p text-center">{{ bnet }}</p>
+<hr>
+
+    <h1 class="tittle mb-5"> Connections Log </h1>
+    {% for conn in conns %}
+        <p class="con-p text-center">{{ conn }}</p>
+<hr>
+    {% endfor %}
+
+{% endblock content %}
