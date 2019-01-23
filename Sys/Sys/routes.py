@@ -55,7 +55,6 @@ def dashboard():
     username_logon = os.getlogin()
     terminal = os.get_terminal_size()
     os_version = platform.win32_ver()
-    view_source = utils.view_source_any_site()
     locip = utils.local_ip()
     cpu_usage = psutil.cpu_percent()
     task_runnig = psutil.test()
@@ -72,7 +71,7 @@ def dashboard():
                            network_pcname=network_pcname, cpu_realname=cpu_realname, pv=pv,
                            username_logon=username_logon, terminal=terminal, drive_storage=drive_storage,
                            os_version=os_version, distro=distro, battery=battery,
-                           view_source=view_source, locip=locip, percent_battery=percent_battery,
+                           locip=locip, percent_battery=percent_battery,
                            cpu_usage=cpu_usage, imple_python=imple_python, distro_linux=distro_linux,
                            num_core=num_core, os_name=os_name, task_runnig=task_runnig, ram=ram)
 
