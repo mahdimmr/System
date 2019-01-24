@@ -136,9 +136,3 @@ def partitions():
     return render_template('partitions.html', disk_part=disk_part)
 
 
-#Route for show the task Running
-@app.route("/task_running")
-def task_running():
-    return render_template('task_running.html')
-
-
