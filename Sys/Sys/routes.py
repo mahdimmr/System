@@ -57,7 +57,6 @@ def dashboard():
     os_version = platform.win32_ver()
     locip = utils.local_ip()
     cpu_usage = psutil.cpu_percent()
-    task_runnig = psutil.test()
     num_core = utils.cpu_core_count()
     imple_python = platform.python_implementation()
     os_name = platform.system()
