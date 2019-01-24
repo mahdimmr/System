@@ -72,7 +72,7 @@ def dashboard():
                            os_version=os_version, distro=distro, battery=battery,
                            locip=locip, percent_battery=percent_battery,
                            cpu_usage=cpu_usage, imple_python=imple_python, distro_linux=distro_linux,
-                           num_core=num_core, os_name=os_name, task_runnig=task_runnig, ram=ram)
+                           num_core=num_core, os_name=os_name, ram=ram)
 
 
 #Logout Route
