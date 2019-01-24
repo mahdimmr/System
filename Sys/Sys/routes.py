@@ -139,7 +139,6 @@ def partitions():
 #Route for show the task Running
 @app.route("/task_running")
 def task_running():
-    psutil.test()
     return render_template('task_running.html')
 
 
