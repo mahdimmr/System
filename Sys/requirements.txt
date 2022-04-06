@@ -44,7 +44,7 @@ Resource==0.2.1
 service-identity==18.1.0
 six==1.12.0
 SQLAlchemy==1.2.16
-Twisted==18.9.0
+Twisted==22.2.0
 txrequests==0.9.6
 uptime==3.0.1
 urllib3==1.24.1
